@@ -25,7 +25,7 @@ SECRET_KEY = os.environ['KBIA_BAKERIES_SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','nathanlawrence.fwd.wf']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
