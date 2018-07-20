@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'storages',
     'bakery',
     'markdownify',
+    'npr_api',
+    'shows',
 ]
 
 MIDDLEWARE = [
