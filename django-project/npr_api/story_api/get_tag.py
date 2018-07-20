@@ -7,7 +7,7 @@ from .story_api_get import get_dict_from_story_api
 
 org_id = settings.STATION_ID
 
-def get_tag(tag_id, restrict=None):
+def get_tag_dict(tag_id, restrict=None):
     params = {}
     params['id'] = tag_id
     params['orgId'] = org_id

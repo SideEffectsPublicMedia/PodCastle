@@ -7,6 +7,6 @@ from .story_api_get import get_dict_from_story_api
 
 org_id = settings.STATION_ID
 
-def get_story(story_id):
+def get_story_dict(story_id):
     params = {'id': story_id}
     return get_dict_from_story_api(params)
