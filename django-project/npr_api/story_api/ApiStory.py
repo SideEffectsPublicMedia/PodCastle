@@ -13,6 +13,14 @@ class ApiStory:
         self.story_dict = get_story_dict(story_id)
 
     @property
+    def story(self):
+        """
+        Convenience method to get straight to the good part of the API.
+        :return:
+        """
+        return self.story_dict["list"]["story"][0]
+
+    @property
     def canonical_link(self):
         links = self.story_dict["list"]["link"]
         for link in links:
@@ -26,6 +34,31 @@ class ApiStory:
         return datetime.strptime(
             self.story_dict["list"]["story"][0]["storyDate"]["$text"][:-6],
             "%a, %d %b %Y %H:%M:%S")
+
+    @property
+    def title(self):
+        story = self.story_dict["list"]["story"][0]
+        return story["title"]["$text"]
+
+    @property
+    def headline(self):
+        return self.title
+
+    @property
+    def author(self):
+        """
+        Author from the Story API story.
+        :return: Dict of author information.
+        """
+        return {
+            "name": self.story["byline"][0]["name"]["$text"],
+            "id": self.story["byline"][0]["name"]["personId"],
+            "link": (self.story["byline"][0]["link"][1]["$text"] if self.story["byline"][0]["link"] else None)
+        }
+
+    @property
+    def byline(self):
+        return self.author
 
     @property
     def html_text(self):
@@ -52,7 +85,7 @@ class ApiStory:
                     "url": image["src"],
                     "id": image["id"],
                     "author": image["producer"]["$text"],
-                    "source": image["provider"]["#text"],
+                    "source": image["provider"]["$text"],
                     "caption": image["caption"]["$text"],
                     # Currently alt must pull from caption
                     # change this as soon as API is fixed.
@@ -73,6 +106,6 @@ class ApiStory:
                 return {
                     "url": audio["format"]["mediastream"]["$text"],
                     "duration": audio["duration"]["$text"],
-                    "description": audio["description"]["$text"]
+                    "description": (audio["description"]["$text"] if audio["description"] else None)
                 }
         return None

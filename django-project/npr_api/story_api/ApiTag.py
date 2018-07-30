@@ -5,6 +5,7 @@ Story API Story Class
 from get_tag import get_tag_dict
 from datetime import datetime
 from django.conf import settings
+from ApiStory import ApiStory
 
 
 class ApiTag:
@@ -14,7 +15,7 @@ class ApiTag:
         self.tag_id = tag_id
 
         # Initialize some cached things.
-        self.stories = []
+        self.stories_cache = []
 
         # Set orgId needed to complete query
         if org_id:
@@ -58,4 +59,14 @@ class ApiTag:
         The title of the story API tag group.
         :return:
         """
-        return self.tag_dict["title"]["$text"]
+        return self.tag_dict["list"]["title"]["$text"]
+
+    @property
+    def stories(self):
+        """
+        Make API requests for all the individual stories and cache that.
+        :return: Cached array of ApiStory objects.
+        """
+        if len(self.stories_cache) <= 0:
+            self.stories_cache = [ApiStory(story_id=d) for d in self.story_ids]
+        return self.stories_cache
