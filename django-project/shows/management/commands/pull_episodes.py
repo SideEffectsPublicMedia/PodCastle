@@ -4,7 +4,8 @@
 Pull podcast episodes over Story API.
 """
 from django.core.management.base import BaseCommand
-
+from npr_api import story_api
+from shows import models as show_models
 
 class Command(BaseCommand):
     """
@@ -17,4 +18,5 @@ class Command(BaseCommand):
         """
         Make it happen.
         """
-        return
+        for show in show_models.Show.objects.all():
+            return
