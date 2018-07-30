@@ -7,7 +7,12 @@
     </div>
     <div id="pc-container">
         <header class="pc-head">
-            <h1>{{ episode.show.name }}</h1>
+            {%  if episode.show.custom_banner %}
+                <img class="show-banner" src="{{ episode.show.custom_banner.url }}" alt="{{ episode.show.name }} logo">
+                {% else %}
+                <h1>{{ episode.show.name }}</h1>
+            {%  endif %}
+
             <div class="text">
                 {{ episode.show.text | markdownify | safe }}
             </div>
