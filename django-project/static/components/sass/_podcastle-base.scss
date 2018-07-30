@@ -19,3 +19,39 @@ div.background {
   }
 
 }
+
+div#pc-container{
+  padding-top: 40px;
+  padding-bottom: 25px;
+
+
+  @include container;
+  max-width: 1000px;
+
+  header.pc-head{
+    h1 {
+      font-size: 5rem;
+      color: #fff;
+      text-align: center;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 400;
+      //text-transform: uppercase;
+    }
+
+    div.text{
+      margin-top: 0.3rem;
+      p {
+        color: #fff;
+        font-family: Lato, sans-serif;
+        font-weight: 100;
+        text-align: center;
+        font-size: 1.3rem;
+        text-transform: uppercase;
+
+      }
+
+    }
+    
+  }
+
+}
