@@ -18,13 +18,14 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.conf import settings
 
-
+from shows.views import *
 
 urlpatterns = [
                   url(r'^admin/', admin.site.urls),
                   # A Couple of Suggested URL Configs
                   # url(r'^podcastle/$', HomePageView.as_view()),
-                  # url(r'^podcastle/posts/(?P<slug>[\w-]+)/$', PostDetailView.as_view(), name='posts'),
+                  url(r'^(?P<slug>[\w-]+)/$', ShowDetailView.as_view(), name='shows'),
+                  url(r'^.+/(?P<slug>[\w-]+)/$', EpisodeDetailView.as_view(), name='episodes'),
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 admin.site.site_header = 'PodCastle Admin'

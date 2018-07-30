@@ -31,3 +31,22 @@ a.back-link{
 	text-decoration: none;
 	color: $gray-light;
 }
+
+figure {
+  width: 100%;
+
+  img {
+    width: 100%;
+  }
+
+  figcaption {
+    font-size: 0.8rem;
+    text-align: right;
+    p {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+  }
+
+}
+
