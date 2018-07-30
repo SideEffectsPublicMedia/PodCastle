@@ -84,12 +84,12 @@ class ApiStory:
                 return {
                     "url": image["src"],
                     "id": image["id"],
-                    "author": image["producer"]["$text"],
-                    "source": image["provider"]["$text"],
-                    "caption": image["caption"]["$text"],
+                    "author": (image["producer"]["$text"] if "$text" in image["producer"] else ""),
+                    "source": (image["provider"]["$text"] if "$text" in image["provider"] else ""),
+                    "caption": (image["caption"]["$text"] if "$text" in image["caption"] else ""),
                     # Currently alt must pull from caption
                     # change this as soon as API is fixed.
-                    "alt": image["caption"]["$text"]
+                    "alt": (image["caption"]["$text"] if "$text" in image["caption"] else "")
                 }
         return None
 

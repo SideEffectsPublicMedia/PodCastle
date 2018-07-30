@@ -76,10 +76,15 @@ class Episode(models.Model):
                                     max_length=512,
                                     unique=True)
     name = models.CharField(max_length=512)
-    date = models.DateField()
+    date = models.DateTimeField()
     image_url = models.URLField("Featured Image URL", max_length=1024)
+    image_caption = models.TextField(blank=True)
+    image_alt = models.TextField(blank=True)
+    image_credit = models.CharField(max_length=1024, blank=True)
+    image_source = models.CharField(max_length=512, blank=True)
     audio_url = models.URLField("MP3 File URL", max_length=1024)
     show = models.ForeignKey(Show, related_name='episodes')
+    text = models.TextField()
 
     class Meta:
         ordering = ['-date']
