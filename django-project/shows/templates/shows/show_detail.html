@@ -44,7 +44,27 @@
             <div class="split-zone split-a">
                 <h2>Subscribe</h2>
                 <ul class="subscribe-options">
-
+                    {% if show.itunes_url %}
+                        <li><a href="{{ show.itunes_url }}"><span class="simple-svg" data-icon="simple-icons:apple" data-inline="true"></span><span class="text"> iTunes</span></a></li>
+                    {% endif %}
+                    {% if show.google_url %}
+                        <li><a href="{{ show.google_url }}"><span class="simple-svg" data-icon="simple-icons:google" data-inline="true"></span><span class="text"> Google Podcasts</span></a></li>
+                    {% endif %}
+                    {% if show.overcast_url %}
+                        <li><a href="{{ show.overcast_url }}"><span class="simple-svg" data-icon="simple-icons:overcast" data-inline="true"></span><span class="text"> Overcast</span></a></li>
+                    {% endif %}
+                    {% if show.pocket_casts_url %}
+                        <li><a href="{{ show.pocket_casts_url }}"><span class="simple-svg" data-icon="ion-md-radio-button-on" data-inline="true"></span><span class="text"> Pocket Casts</span></a></li>
+                    {% endif %}
+                    {% if show.npr_one_url %}
+                        <li><a href="{{ show.npr_one_url }}"><span class="simple-svg" data-icon="ion-ios-radio" data-inline="true"></span><span class="text"> NPR One</span></a></li>
+                    {% endif %}
+                    {% if show.stitcher_url %}
+                        <li><a href="{{ show.stitcher_url }}"><span class="simple-svg" data-icon="simple-icons:stitcher" data-inline="true"></span><span class="text"> Stitcher</span></a></li>
+                    {% endif %}
+                    {% if show.feed_url %}
+                        <li><a href="{{ show.feed_url }}"><span class="simple-svg" data-icon="simple-icons:rss" data-inline="true"></span><span class="text"> RSS Feed</span></a></li>
+                    {% endif %}
                 </ul>
             </div>
 
