@@ -1,6 +1,28 @@
 {% extends 'base.html' %}
 {% load markdownify %}
 
+{% block meta %}
+    <title>{{ episode.name }} - {{ episode.show.name }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:url" content="https://casts.kbia.fm{{ episode.get_absolute_url }}">
+    <meta property="og:type" content="article">
+    <meta property="fb:app_id" content="110964099434176">
+    <meta property="og:title" content="{{ episode.name }} - {{ episode.show.name }}">
+    <meta property="og:description" content="{{ show.social_tagline }}">
+    <meta property="og:image:url" content="{{ episode.image_url }}">
+    <meta property="og:image:alt" content="{{ episode.image_alt }}">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="article:publisher" content="https://www.facebook.com/KBIAnews/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@KBIA">
+    <meta name="twitter:creator" content="@KBIA">
+    <meta name="twitter:title" content="{{ episode.name }} - {{ episode.show.name }}">
+    <meta name="twitter:description" content="{{ episode.show.social_tagline }}">
+    <meta name="twitter:image" content="{{ episode.image_url }}">
+{% endblock meta %}
+
+
+
 {% block content %}
     <div class="background" aria-hidden="true" style="">
         <img src="{{ episode.image_url }}" style="">

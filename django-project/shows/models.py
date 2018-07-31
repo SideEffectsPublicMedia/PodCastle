@@ -9,6 +9,7 @@ class Show (models.Model):
     slug = models.SlugField(max_length=250,
                             unique=True)
     name = models.CharField(max_length=512)
+    social_tagline = models.TextField(blank=True)
     story_api_tag_id = models.CharField(
         "NPR Story API Tag ID",
         help_text="Used to pull in episodes. \
