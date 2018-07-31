@@ -3,7 +3,7 @@ Story API Story Class
 """
 
 from get_story import get_story_dict
-from datetime import datetime
+from dateutil import parser
 
 
 class ApiStory:
@@ -31,9 +31,8 @@ class ApiStory:
     @property
     def date_time(self):
         # Format from json: Thu, 19 Jul 2018 09:48:06 -0400
-        return datetime.strptime(
-            self.story_dict["list"]["story"][0]["storyDate"]["$text"][:-6],
-            "%a, %d %b %Y %H:%M:%S")
+        return parser.parse(
+            self.story_dict["list"]["story"][0]["storyDate"]["$text"])
 
     @property
     def title(self):

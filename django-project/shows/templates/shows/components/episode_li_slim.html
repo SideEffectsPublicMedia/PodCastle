@@ -1,0 +1,19 @@
+<li>
+    <h3>{{ episode.name }}</h3>
+    <p class="date">{{ episode.date | date:"F j, Y" }}</p>
+    <div class="linear-group-break-mobile">
+        <div class="group-item">
+            <audio id="ply-{{ episode.story_api_id }}" controls controlsList="nodownload novolume">
+                <source src="{{ episode.audio_url }}" type="audio/mp3">
+            </audio>
+            <script>
+                player = new Plyr('#ply-{{ episode.story_api_id }}', {
+                    controls: ['play', 'progress', 'current-time', 'airplay', 'settings']
+                });
+            </script>
+        </div>
+        <div class="group-item">
+            <a href="{{ episode.get_absolute_url }}" class="button more">Read More</a>
+        </div>
+    </div>
+</li>

@@ -1,0 +1,56 @@
+ul.episode-list{
+  li {
+    margin: 10px 0;
+    padding: 10px;
+
+    border: 1px solid rgba(255,255,255, 0.5);
+
+    h3 {
+      font-family: Lato, sans-serif;
+      font-weight: 400;
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    p.date{
+      font-family: Lato, sans-serif;
+      font-weight: 100;
+      text-transform: uppercase;
+      margin-bottom: 0.5em;
+    }
+  }
+}
+
+
+div.linear-group-break-mobile{
+
+  a.more {
+    @include outline-button(rgba(255,255,255, 0.5));
+    display: block;
+    border-radius: 3px;
+    line-height: 25px; // Current total height of player is 37px
+    text-align: center;
+    vertical-align: middle;
+    color: rgba(255,255,255,0.8);
+
+    &:hover{
+      color: rgba(255,255,255,1);
+    }
+  }
+
+  div.group-item:last-of-type {
+    margin-top: 10px;
+  }
+
+
+
+  @media screen and (min-width: $small-screen-width){
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 10px;
+
+    div.group-item:last-of-type {
+      margin-top: 0;
+    }
+  }
+}

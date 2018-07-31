@@ -155,7 +155,8 @@ AWS_QUERYSTRING_AUTH = False
 BUILD_DIR = os.path.join(PROJECT_ROOT, 'baked')
 AWS_BUCKET_NAME = 'kbia-podcastle'
 AWS_S3_ENDPOINT = 'https://s3-accelerate.amazonaws.com'
-BAKERY_VIEWS= ()
+BAKERY_VIEWS= ('shows.views.ShowDetailView',
+               'shows.views.EpisodeDetailView')
 
 # Django Markdownify Settings
 MARKDOWNIFY_WHITELIST_TAGS = [

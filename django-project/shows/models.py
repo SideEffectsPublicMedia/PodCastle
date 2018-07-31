@@ -85,6 +85,7 @@ class Episode(models.Model):
     audio_url = models.URLField("MP3 File URL", max_length=1024)
     show = models.ForeignKey(Show, related_name='episodes')
     text = models.TextField()
+    canonical_url = models.URLField(blank=True)
 
     class Meta:
         ordering = ['-date']

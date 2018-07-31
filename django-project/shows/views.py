@@ -14,7 +14,7 @@ class ShowDetailView(BuildableDetailView):
     def get_object(self):
         if self.kwargs['slug']:
             return Show.objects.get(slug=self.kwargs['slug'])
-        return super(ShowDetailView, self).get_objects()
+        return super(ShowDetailView, self).get_object()
 
 class EpisodeDetailView(BuildableDetailView):
     model = Episode
@@ -23,4 +23,4 @@ class EpisodeDetailView(BuildableDetailView):
     def get_object(self):
         if self.kwargs['slug']:
             return Episode.objects.get(story_api_id=self.kwargs['slug'])
-        return super(EpisodeDetailView, self).get_objects()
+        return super(EpisodeDetailView, self).get_object()

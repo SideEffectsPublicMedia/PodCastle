@@ -44,6 +44,7 @@ class Command(BaseCommand):
                         "image_alt": api_story.image["alt"],
                         "image_credit": api_story.image["author"],
                         "image_source": api_story.image["source"],
+                        "canonical_url": api_story.canonical_link,
                     }
                 )
                 if created:

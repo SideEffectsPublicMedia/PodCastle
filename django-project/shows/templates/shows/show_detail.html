@@ -1,2 +1,62 @@
 {% extends 'base.html' %}
 {% load markdownify %}
+
+{% block meta %}
+    <title>{{ show.name }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {#    <meta property="og:url" content="https://apps.kbia.fm/2018-july-autism-caregivers/">#}
+    <meta property="og:type" content="article">
+    <meta property="fb:app_id" content="110964099434176">
+    <meta property="og:title" content="{{ show.name }}">
+    <meta property="og:description" content="{{ show.text | markdownify | safe }}">
+    <meta property="og:image:url" content="https://apps.kbia.fm/2018-july-autism-caregivers/img/og-cover.jpg">
+    <meta property="og:image:alt" content="{{ show.name }} logo.">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="article:publisher" content="https://www.facebook.com/KBIAnews/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@KBIA">
+    <meta name="twitter:creator" content="@KBIA">
+    <meta name="twitter:title" content="{{ show.name }}">
+    <meta name="twitter:description" content="{{ show.text | markdownify | safe }}">
+    <meta name="twitter:image" content="https://apps.kbia.fm/2018-july-autism-caregivers/img/og-cover.jpg">
+{% endblock meta %}
+
+{% block content %}
+    <div class="background" aria-hidden="true" style="">
+        <img src="{{ show.episodes.first.image_url }}" style="">
+    </div>
+    <div id="pc-container">
+        <header class="pc-head">
+            {%  if show.custom_banner %}
+                <a href="{{ show.get_absolute_url }}">
+                    <img class="show-banner" src="{{ show.custom_banner.url }}" alt="{{ episode.show.name }} logo">
+                </a>
+            {% else %}
+                <h1>{{ show.name }}</h1>
+            {%  endif %}
+
+            <div class="text">
+                {{ show.text | markdownify | safe }}
+            </div>
+        </header>
+
+        <div class="split-index">
+            <div class="split-zone split-a">
+                <h2>Subscribe</h2>
+                <ul class="subscribe-options">
+
+                </ul>
+            </div>
+
+            <div class="split-zone split-b">
+                <h2>Listen</h2>
+                <ul class="episode-list">
+                    {% for episode in show.episodes.all %}
+                        {% include "shows/components/episode_li_slim.html" with episode=episode %}
+                    {% endfor %}
+                </ul>
+            </div>
+
+        </div>
+    </div>
+{% endblock content %}

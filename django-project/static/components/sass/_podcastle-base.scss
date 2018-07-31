@@ -61,4 +61,24 @@ div#pc-container{
 
   }
 
+
+
 }
+
+p {
+  a {
+    text-decoration:none;
+    color: $project-primary;
+
+    &:hover{
+      text-decoration: underline;
+    }
+
+    &:visited{
+      color: darken($project-primary, 10%);
+      text-decoration: none;
+    }
+
+  }
+}
+

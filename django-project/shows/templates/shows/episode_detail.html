@@ -8,7 +8,9 @@
     <div id="pc-container">
         <header class="pc-head">
             {%  if episode.show.custom_banner %}
+                <a href="{{ episode.show.get_absolute_url }}">
                 <img class="show-banner" src="{{ episode.show.custom_banner.url }}" alt="{{ episode.show.name }} logo">
+                </a>
                 {% else %}
                 <h1>{{ episode.show.name }}</h1>
             {%  endif %}
@@ -32,6 +34,7 @@
                     </figcaption>
                 {% endif %}
             </figure>
+                    <a href="{{ episode.show.get_absolute_url }}" class="episode-list-link"><i class="fas fa-stream"></i> View All Episodes</a>
             <h2>{{ episode.name }}</h2>
             <audio id="ply-{{ episode.story_api_id }}" controls controlsList="nodownload">
                 <source src="{{ episode.audio_url }}" type="audio/mp3">
