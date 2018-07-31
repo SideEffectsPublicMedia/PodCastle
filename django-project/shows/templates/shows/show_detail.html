@@ -51,7 +51,8 @@
             <div class="split-zone split-b">
                 <h2>Listen</h2>
                 <ul class="episode-list">
-                    {% for episode in show.episodes.all %}
+                    {% include "shows/components/episode_li_bulky.html" with episode=show.episodes.first %}
+                    {% for episode in show.episodes.all|slice:"1:" %}
                         {% include "shows/components/episode_li_slim.html" with episode=episode %}
                     {% endfor %}
                 </ul>

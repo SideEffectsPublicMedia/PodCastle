@@ -54,3 +54,28 @@ div.linear-group-break-mobile{
     }
   }
 }
+
+
+div.artwork-separator{
+  display: grid;
+  grid-template-columns: 3fr 19fr;
+  grid-gap: 10px;
+
+  @media screen and (max-width: $small-screen-width){
+      grid-template-columns: 1fr 3fr;
+
+    }
+
+  div.artwork{
+    img {
+      max-width: 100%;
+      margin-bottom: 5px;
+    }
+  }
+
+  div.context {
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+}

@@ -15,8 +15,12 @@ div.split-index{
     font-size: 1.3rem;
   }
 
-  div.split-a{
+  div.split-zone{
+    padding: 20px 0;
+  }
 
+  div.split-a{
+    border-bottom: 1px solid rgba(255,255,255, 0.5);
   }
 
   div.split-b{
@@ -37,6 +41,7 @@ div.split-index{
     div.split-a{
       text-align: right;
       border-right: 1px solid rgba(255,255,255, 0.5);
+      border-bottom: none;
     }
 
     div.split-b{
