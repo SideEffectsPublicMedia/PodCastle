@@ -4,21 +4,21 @@
 {% block meta %}
     <title>{{ show.name }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {#    <meta property="og:url" content="https://apps.kbia.fm/2018-july-autism-caregivers/">#}
+    <meta property="og:url" content="https://casts.kbia.fm{{ show.get_absolute_url }}">
     <meta property="og:type" content="article">
     <meta property="fb:app_id" content="110964099434176">
     <meta property="og:title" content="{{ show.name }}">
-    <meta property="og:description" content="{{ show.text | markdownify | safe }}">
-    <meta property="og:image:url" content="https://apps.kbia.fm/2018-july-autism-caregivers/img/og-cover.jpg">
-    <meta property="og:image:alt" content="{{ show.name }} logo.">
+    <meta property="og:description" content="{{ show.social_tagline }}">
+    <meta property="og:image:url" content="{{ show.episodes.first.image_url }}">
+    <meta property="og:image:alt" content="{{ show.name }}">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="article:publisher" content="https://www.facebook.com/KBIAnews/">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@KBIA">
     <meta name="twitter:creator" content="@KBIA">
     <meta name="twitter:title" content="{{ show.name }}">
-    <meta name="twitter:description" content="{{ show.text | markdownify | safe }}">
-    <meta name="twitter:image" content="https://apps.kbia.fm/2018-july-autism-caregivers/img/og-cover.jpg">
+    <meta name="twitter:description" content="{{ show.social_tagline }}">
+    <meta name="twitter:image" content="{{ show.episodes.first.image_url }}">
 {% endblock meta %}
 
 {% block content %}
