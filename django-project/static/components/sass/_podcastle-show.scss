@@ -52,3 +52,41 @@ div.split-index{
 
 
 }
+
+
+ul.subscribe-options {
+  margin-top: 10px;
+  li {
+    margin: 5px 0;
+    font-size: 1.1rem;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+
+      &:hover{
+        color: $project-primary;
+      }
+    }
+  }
+
+  @media screen and (max-width: $medium-screen-width){
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+    li {
+      display: block;
+      text-align: center;
+
+      span.text {
+        display: none;
+      }
+
+    }
+
+  }
+
+
+
+
+}
