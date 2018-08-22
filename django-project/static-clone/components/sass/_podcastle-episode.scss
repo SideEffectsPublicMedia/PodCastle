@@ -1,0 +1,62 @@
+article{
+  @include container;
+  max-width: 750px;
+  color: #fff;
+
+
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  padding: 1.5rem;
+
+  background: rgba(0,0,0,0.3);
+
+  h2 {
+    font-size: 3rem;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-family: Lato, sans-serif;
+    font-weight: 400;
+  }
+
+
+  p {
+    line-height: 1.3em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-weight: 400;
+  }
+
+  div.fullattribution {
+    color: #ccc;
+    font-size: 0.7rem;
+
+    a {
+      text-decoration:none;
+      color: $project-primary;
+
+      &:hover{
+        text-decoration: underline;
+      }
+
+      &:visited{
+        color: darken($project-primary, 10%);
+        text-decoration: none;
+      }
+
+    }
+  }
+}
+
+a.episode-list-link{
+  margin-top: 1rem;
+  margin-bottom: 0;
+  text-decoration: none;
+
+  display: block;
+
+  color: $project-primary;
+  &:hover{
+    text-decoration: underline;
+  }
+}
